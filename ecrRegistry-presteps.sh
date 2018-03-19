@@ -1,5 +1,7 @@
 if [ "$APP_BUILD_NAME" ]
 then
+	echo "Login Docker CLI ... "
+	$(aws ecr get-login --no-include-email)
 	echo "Starting to publish : "$APP_BUILD_NAME "build ... "
 	export REGISTRY_URI=`aws ecr describe-repositories --repository-names $APP_BUILD_NAME | jq -r '.repositories[0].repositoryUri'`
 	if [ ! "$REGISTRY_URI" ]
