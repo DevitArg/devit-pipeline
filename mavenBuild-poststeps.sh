@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export APP_VERSION=$(docker images $JOB_BASE_NAME --format "{{.Tag}}" | head -n 1)
 
 echo APP_VERSION=$APP_VERSION > parameters.properties
